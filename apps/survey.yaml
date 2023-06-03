@@ -2,6 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: survey-back
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-running.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd
+    notifications.argoproj.io/subscribe.on-deployed.slack: argocd
 spec:
   replicas: 2
   selector:
