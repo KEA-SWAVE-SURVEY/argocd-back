@@ -25,7 +25,7 @@ spec:
       #     command: ['sh', '-c', 'until nslookup mysql:3306; do echo waiting for myweb-mysql; sleep 2; done;'] 
       containers:
         - name: survey-back
-          image: kjk7212/survey-back:22
+          image: kjk7212/survey-back:21
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
