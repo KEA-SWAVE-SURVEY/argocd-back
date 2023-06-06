@@ -25,7 +25,7 @@ spec:
       #     command: ['sh', '-c', 'until ping surveydocument-service; do echo waiting for surveydocument; sleep 2; done;']
       containers:
         - name: response-back
-          image: kjk7212/response-back:48
+          image: kjk7212/response-back:49
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
