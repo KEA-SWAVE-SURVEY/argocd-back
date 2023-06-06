@@ -29,7 +29,12 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-              protocol: TCP
+              name: spring
+            - containerPort: 8082
+              name: spring-actuator
+          resources:
+            limits:
+              cpu: 100m
         - name: redis-container
           image: redis:latest
           ports:
@@ -42,8 +47,13 @@ metadata:
   name: survey-back-service
 spec:
   ports:
-    - port: 8080
+    - name: spring
+      port: 8080
       targetPort: 8080
+      protocol: TCP
+    - name: spring-actuator
+      port: 8082 # service의 port
+      targetPort: 8082 # pod의 target port
       protocol: TCP
   selector:
     app: survey-back
