@@ -25,7 +25,7 @@ spec:
       #     command: ['sh', '-c', 'until nslookup surveyanswer-service; do echo waiting for surveyanswer; sleep 2; done;']
       containers:
         - name: user-back
-          image: kjk7212/user-back:43
+          image: kjk7212/user-back:45
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
