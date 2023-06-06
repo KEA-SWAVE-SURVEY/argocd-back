@@ -32,6 +32,8 @@ spec:
           resources:
             requests:
               cpu: 100m
+            limits:
+              cpu: 100m
         - name: redis-container
           image: redis:latest
           ports:
@@ -44,7 +46,6 @@ metadata:
   name: analysis-back-service
   labels:
     app: analysis-back-service
-label:
 spec:
   ports:
     - name: spring
