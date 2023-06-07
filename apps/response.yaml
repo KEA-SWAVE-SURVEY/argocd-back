@@ -16,6 +16,8 @@ spec:
         rometheus.io/port: '8082'
         prometheus.io/path: "/actuator/prometheus"
     spec:
+      imagePullSecrets:
+        - name: docker-pull-secret
       # initContainers:
       #   - name: wait-for-surveydocument
       #     image: busybox
