@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: analysis-back
 spec:
-  replicas: 2
+  #replicas: 2 #hpa
   selector:
     matchLabels:
       app: analysis-back

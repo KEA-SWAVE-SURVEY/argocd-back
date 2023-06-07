@@ -2,15 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: survey-back
-  annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd
-    notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd
-    notifications.argoproj.io/subscribe.on-sync-running.slack: argocd
-    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: argocd
-    notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd
-    notifications.argoproj.io/subscribe.on-deployed.slack: argocd
 spec:
-  replicas: 2
+  #replicas: 2 #hpa
   selector:
     matchLabels:
       app: survey-back
@@ -18,6 +11,10 @@ spec:
     metadata:
       labels:
         app: survey-back
+      annotations:
+        prometheus.io/scrape: 'true'
+        rometheus.io/port: '8082'
+        prometheus.io/path: "/actuator/prometheus"
     spec:
       # initContainers:
       #   - name: wait-for-mysql
